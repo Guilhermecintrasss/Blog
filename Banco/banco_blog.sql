@@ -7,10 +7,10 @@ CREATE TABLE usuario(
     email varchar(255) not null,
     senha varchar(60) not null,
     data_criacao datetime not null default current_timestamp,
-    ativo tinyint not null default '0';
+    ativo tinyint not null default '0',
     adm tinyint not null default '0',
-    primary key(id);
-)
+    primary key(id)
+);
 
 create table post(
     id int not null auto_increment,
@@ -21,5 +21,5 @@ create table post(
     data_postagem datetime not null,
     primary key(id),
     key fk_post_usuario_idx(usuario_id),
-    constraint fk_post_usuario foreign key(usuario_id) references usuario
-)
+    constraint fk_post_usuario foreign key(usuario_id) references usuario(id)
+);
