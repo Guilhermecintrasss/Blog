@@ -2,9 +2,9 @@
     require_once '../core/sql.php';
 
     $id = 1;
-    $nome = 'murilo';
-    $email = 'murilo@gmail.com';
-    $senha = '123mudar';
+    $nome = 'Guilherme Cintra';
+    $email = 'guilherme.cintra@aluno.ifsp.edu.br';
+    $senha = 'MuLiro e Caçio';
     $dados = ['nome' => $nome,
               'email' => $email,
               'senha' => $senha];
