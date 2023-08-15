@@ -5,13 +5,14 @@ function insere (string $entidade, array $dados) : bool
     $retorno = false;
 
     foreach ($dados as $campo => $dado) {
-        $coringa[$campo] = '?';
+        $coringa[$campo] = '?'; // Previo preenchimento de dados, ficam todos com um ?
         $tipo[] = gettype($dado) [0];
-        $$campo = $dado;
+        $$campo = $dado; // vai criar a variavel $campo, que nesse caso é = dado, então vai
+        // criar uma variavel que se chama o nome do dado (exemplo: $campo = nome, $$campo = $nome)
     }
 
-    $instrucao = insert($entidade, $coringa);
-
+    $instrucao = insert($entidade, $coringa); //vai inserir os coringas
+    
     $conexao = conecta();
 
     $stmt = mysqli_prepare ($conexao, $instrucao);
@@ -23,7 +24,7 @@ function insere (string $entidade, array $dados) : bool
     
     $retorno = (boolean) mysqli_stmt_affected_rows($stmt);
 
-    $_SESSION['erros'] = mysqli_stmt_error_list($stmt);
+    $_SESSION['errors'] = mysqli_stmt_error_list($stmt);
 
     mysqli_stmt_close($stmt);
 
@@ -162,7 +163,7 @@ string $ordem = null) : array
     }
 
     $instrucao = select($entidade, $campos, $coringa_criterio, $ordem);
-
+    
     $conexao = conecta();
 
     $stmt = mysqli_prepare($conexao, $instrucao);
