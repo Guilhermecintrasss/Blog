@@ -4,11 +4,6 @@ require_once '../core/conexao_mysql.php';
 require_once '../core/sql.php';
 require_once '../core/mysql.php';
 
-insert_teste ('Guilherme', 'guilherme.cintra@ifsp.edu.br', '123456');
-buscar_teste();
-update_teste(38, 'murilo', 'silva@gmail.com');
-buscar_teste();
-
 //Teste inserção banco de dados
 function insert_teste($nome, $email, $senha): void{
 
@@ -30,6 +25,12 @@ function update_teste($id, $nome, $email): void{
     $criterio = [['id', '=', $id]];
     atualiza('usuario', $dados, $criterio);
 }
+
+
+insert_teste ('Guilherme', 'guilherme.cintra@ifsp.edu.br', '123456');
+buscar_teste();
+update_teste(3, 'murilo', 'silva@gmail.com');
+buscar_teste();
 
 
 

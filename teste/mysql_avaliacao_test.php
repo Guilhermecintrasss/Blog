@@ -5,9 +5,9 @@ require_once '../core/sql.php';
 require_once '../core/mysql.php';
 
 insert_teste ('10', 'Adorei','1','3');
-buscar_teste();
-update_teste(1, '2', 'Bem ruimzinho','1','3');
-buscar_teste();
+//buscar_teste();
+//update_teste(1, '2', 'Bem ruimzinho','1','3');
+//buscar_teste();
 
 function insert_teste($nota, $comentario, $usuario_id, $post_id): void{
 
