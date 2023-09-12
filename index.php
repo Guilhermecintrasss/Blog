@@ -79,7 +79,7 @@
                             $data = date_format($data, 'd/m/Y H:i:s'); // formata a data
                         ?>
                         <a class="list-group-item list-group-item-action"
-                            href="post_detalhe.php?post=<?php echo $post['id']?>"> <!--Cria uma URL com base em ID-->
+                            href="post_detalhe.php?post=<?php echo $post['id']?>"> <!--Cria uma href com base em ID-->
                             <strong><?php echo $post['titulo']?></strong>
                             [<?php echo $post['nome']?>]
                             <span class="badge badge-dark"><?php echo $data?></span>

@@ -11,7 +11,9 @@
                 <div class="col-md-12">
                     <?php 
                     include 'includes/topo.php';
-                    include 'includes/valida_login.php' ?>
+                    include 'includes/valida_login.php' // faz o usuario ser redirecionado pro login
+                    //isso garante que o usuario nunca acessara a pagina nao estando logado
+                    // mesmo sabendo o caminho pela URL ?>
                 </div>
 
             </div>
@@ -71,7 +73,7 @@
                             <?php 
                                 $data = (!empty($entidade['data_postagem']))?
                                     explode(' ', $entidade['data_postagem'])[0] : '';
-                                $hora = (!empty($entidade['data_postagem']))?
+                                $hora = (!empty($entidade['data_postagem']))? // separa a hora da data pelo explode
                                     explode(' ', $entidade['data_postagem'])[1] : '';
                             ?>
                             <div class="row">
