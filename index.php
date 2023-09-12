@@ -30,6 +30,7 @@
                 ?>
 
                 <?php
+                    date_default_timezone_set('America/Sao_Paulo'); // Seta o fuso horario correto
                     require_once 'includes/funcoes.php';
                     require_once 'core/conexao_mysql.php';
                     require_once 'core/sql.php';
@@ -39,8 +40,9 @@
                         $$indice = limparDados($dado);
                     }
 
-                    $data_atual = date('Y-m-d H:i:s');
-
+                    $data_atual = date('Y-m-d H:i:s'); //serve como parametro para serem exibidos apenas
+                    // os posts com datas menores ou igual a essas.
+                    // usa-se ano/mes/dia para ser mais facil de comparar em ordem decrescente
                     $criterio = [
                         ['data_postagem', '<=', $data_atual]
                     ];

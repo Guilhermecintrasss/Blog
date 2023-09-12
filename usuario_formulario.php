@@ -26,24 +26,26 @@
                             $id = (int) $_SESSION['login']['usuario']['id'];
 
                             $criterio = [
-                                ['id', '=', $id]
+                                ['id', '=', $id] // o id do banco ser igual o id do usuario
                             ];
 
                             $retorno = buscar (
                                 'usuario',
-                                ['id', 'nome','email'],
+                                ['id', 'nome','email'], //vai ter só 1 resultado (por id)
                                 $criterio
                             );
 
-                            $entidade = $retorno[0];
+                            $entidade = $retorno[0]; // a primeira linha do retorno
                         }
                     ?>
                     <h2>Usuário</h2>
                     <form method="post" action="core/usuario_repositorio.php">
                         <input type="hidden" name="acao"
-                               value="<?php echo empty($id) ? 'insert' : 'update' ?>">
+                               value="<?php echo empty($id) ? 'insert' : 'update' ?>"><!-- o ? age como um "if"
+                               o que esta a esquerda é caso seja verdade, o que esta a direita é falso-->
                         <input type="hidden" name="id"
-                               value="<?php echo $entidade['id'] ?? '' ?>">
+                               value="<?php echo $entidade['id'] ?? '' ?>"> <!-- Uma maneira mais redundante,
+                            o caso seja verdade é a propia comparação, e o falso é apos as 2 interrogações-->
                         <div class="form-group">
                             <label for="nome">Nome</label>
                             <input class="form-control" type="text"
@@ -56,7 +58,7 @@
                                 require="required" id="email" name="email"
                                 value="<?php echo $entidade['email'] ?? '' ?>">
                         </div>
-                        <?php if(!isset($_SESSION['login'])): ?>
+                        <?php if(!isset($_SESSION['login'])): //começa um if php, que tem final depois ?> 
                         <div class="form-group">
                             <label for="senha">Senha</label>
                             <input class="form-control" type="text"

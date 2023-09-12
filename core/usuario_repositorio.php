@@ -4,10 +4,10 @@ require_once '../includes/funcoes.php';
 require_once 'conexao_mysql.php';
 require_once 'sql.php';
 require_once 'mysql.php';
-$salt = '$exemplosaltifsp';
+$salt = 'ifsp';
 
 foreach($_POST as $indice => $dado){
-    $$indice = limparDados($dado);
+    $$indice = limparDados($dado); // vai criando todas as variais de acordo com o nome delas
 }
 
 foreach($_GET as $indice => $dado){
@@ -16,7 +16,7 @@ foreach($_GET as $indice => $dado){
 switch($acao){
     case 'insert':
         $dados =[
-            'nome' => $nome,
+            'nome' => $nome, // por isso aqui usamos $nome, ela foi criada automaticamente no limparDados($dado)
             'email' => $email,
             'senha' => crypt($senha,$salt)
             ];
@@ -58,9 +58,10 @@ switch($acao){
         );
 
         if(count($retorno) > 0){
-            if(crypt($senha,$salt) == $retorno[0]['senha']){
-                $_SESSION['login']['usuario'] = $retorno[0];
-                if(!empty($_SESSION['url_retorno'])){
+            if(crypt($senha,$salt) == $retorno[0]['senha']){ // verifica a senha pela criptografia
+                $_SESSION['login']['usuario'] = $retorno[0]; // cria a variavel tipo Session "['login']['usuario']'
+                // ela simplesmente serve como um login
+                if(!empty($_SESSION['url_retorno'])){ // se a url for diferente de vazio, ela vai fazer que o usuario seja direcionado para ela
                     header('Location:' . $_SESSION['url_retorno']);
                     $_SESSION['url_retorno'] = '';
                     exit;
