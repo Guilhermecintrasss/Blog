@@ -11,28 +11,27 @@ foreach($_POST as $indice => $dado) {
 }
 
 foreach($_GET as $indice => $dado) {
-    $$indice = limparDados($dados);
+    $$indice = limparDados($dado);
 }
 
 $id = (int)$id;
 
+
 switch($acao){
     case 'insert':
+        if(!empty($titulo) and !empty($texto))
+        {
         $dados =[
             'titulo' => $titulo,
             'texto' => $texto,
             'data_postagem' => "$data_postagem $hora_postagem",
             'usuario_id' => $_SESSION['login']['usuario']['id']
         ];
-
-        insere(
-            'post',
-            $dados
-        );
+        }
 
         break;
 
-        case 'update':
+    case 'update':
             $dados = [
                 'titulo' => $titulo,
                 'texto' => $texto,
@@ -52,7 +51,7 @@ switch($acao){
 
             break;
 
-            case 'delete':
+    case 'delete':
                 $criterio = [
                     ['id', '=', $id]
                 ];
@@ -62,7 +61,7 @@ switch($acao){
                     $criterio
                 );
 
-                break;
+            break;
 }
 
 header('Location: ../index.php');
