@@ -54,6 +54,7 @@
                             'like',
                             "%{$busca}%"
                         ];
+                        
                     }
 
                     $posts = buscar(
