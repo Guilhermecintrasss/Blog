@@ -25,6 +25,7 @@ switch($acao){
                 'usuario',
                 $dados
             );
+            
 
             break;
     case 'update':

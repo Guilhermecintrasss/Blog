@@ -19,16 +19,23 @@ $id = (int)$id;
 
 switch($acao){
     case 'insert':
-        if(!empty($titulo) and !empty($texto))
-        {
+        $trimmed = trim($texto);
+
+        if(empty($trimmed)){
+
+        } else{ 
         $dados =[
             'titulo' => $titulo,
             'texto' => $texto,
             'data_postagem' => "$data_postagem $hora_postagem",
             'usuario_id' => $_SESSION['login']['usuario']['id']
         ];
+        insere(
+            'post',
+            $dados
+        );
         }
-
+        
         break;
 
     case 'update':

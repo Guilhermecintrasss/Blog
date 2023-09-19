@@ -86,8 +86,11 @@
                             [<?php echo $post['nome']?>]
                             <span class="badge badge-dark"><?php echo $data?></span>
                         </a>
-                        <a href="core/post_repositorio.php?acao=delete&id=<?php echo $post['id'] ?>"> Deletar
+                        <?php if((isset($_SESSION['login'])) //checa se esta logado e se o adm é = 1
+                && ($_SESSION['login']['usuario']['adm'] === 1)) : ?>
+                        <a href="core/post_repositorio.php?acao=delete&id=<?php echo $post['id']?>"> Deletar
                         </a>
+                        <?php endif;?>
                         <?php endforeach; ?>
                     </div>
                 </div>

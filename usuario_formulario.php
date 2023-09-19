@@ -49,20 +49,20 @@
                         <div class="form-group">
                             <label for="nome">Nome</label>
                             <input class="form-control" type="text"
-                                require="required" id="nome" name="nome"
+                                required id="nome" name="nome"
                                 value="<?php echo $entidade['nome'] ?? '' ?>">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input class="form-control" type="text"
-                                require="required" id="email" name="email"
+                                required id="email" name="email"
                                 value="<?php echo $entidade['email'] ?? '' ?>">
-                        </div>
+                        </div> 
                         <?php if(!isset($_SESSION['login'])): //começa um if php, que tem final depois ?> 
                         <div class="form-group">
                             <label for="senha">Senha</label>
-                            <input class="form-control" type="text"
-                                require="required" id="senha" name="senha">
+                            <input class="form-control" type="password"
+                                required id="senha" name="senha">
                         </div>
                         <?php endif; ?>
                         <div class="text-right">

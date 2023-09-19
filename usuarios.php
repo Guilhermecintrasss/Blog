@@ -70,7 +70,7 @@
                     </thead>
                     <tbody>
                         <?php
-                            foreach($result as $entidade): // o que é essas entidade?
+                            foreach($result as $entidade):
                                 $data = date_create($entidade['data_criacao']);
                                 $data = date_format($data, 'd/m/Y H:i:s');
                         ?>
@@ -80,7 +80,7 @@
                             <td><?php echo $data ?></td>
                             <td><a href='core/usuario_repositorio.php?acao=status&id=<?php echo $entidade['id']?> &valor=<?php echo !$entidade['ativo']?>'><?php echo ($entidade['ativo']==1)  ? 'Desativar' : 'Ativar'; ?> </a></td>
                             <td><a href='core/usuario_repositorio.php?acao=adm&id=<?php echo $entidade['id']?> &valor=<?php echo !$entidade['adm']?>'><?php echo ($entidade['adm']==1)  ?  'Rebaixar' : 'Promover'; ?> </a></td>
-                        </tr> <!--tendi nada daqui de cima-->
+                        </tr> <!--ele vai pro usuario_repositorio.php, a ação é status, e o-->
                         <?php endforeach; ?>
                     </tbody>
                 </table>
