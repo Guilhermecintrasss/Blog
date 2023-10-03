@@ -32,7 +32,7 @@
                                     require="required" id="senha" name="senha">
                             </div>
                             <div class="text-right">
-                                <button class="btn btn-sucess"
+                                <button class="btn btn-success"
                                     type="submit">Acessar</button>
                             </div>
                         </form>
